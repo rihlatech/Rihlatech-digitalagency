@@ -19,13 +19,13 @@ export default function PortfolioCard({ icon: Icon, title, category, description
         </div>
       </div>
       <div className="space-y-4 p-6">
-        <h3 className="text-xl font-semibold text-slate-950">{title}</h3>
-        <p className="text-sm leading-7 text-slate-600">{description}</p>
+        <h3 className="text-xl font-semibold text-white">{title}</h3>
+        <p className="text-sm leading-7 text-slate-300">{description}</p>
         <a
           href={actionLink}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-slate-50"
+          className="inline-flex rounded-full border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
         >
           Request similar project
         </a>

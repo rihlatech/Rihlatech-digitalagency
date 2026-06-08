@@ -3,7 +3,7 @@ import { contactInfo, navLinks } from '../data/siteData'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-slate-950/95 text-slate-300">
+    <footer className="border-t border-slate-800 bg-slate-950/95 text-slate-300">
       <div className="page-container grid gap-10 py-16 lg:grid-cols-[1.2fr_1fr_1fr]">
         <div className="space-y-4">
           <h2 className="text-xl font-semibold text-white">RihlaTech Company</h2>
@@ -35,7 +35,7 @@ export default function Footer() {
             href={contactInfo.whatsapp}
             target="_blank"
             rel="noreferrer"
-            className="mt-5 inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
+            className="mt-5 inline-flex rounded-full bg-[#2563EB] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1D4ED8]"
           >
             Chat on WhatsApp
           </a>

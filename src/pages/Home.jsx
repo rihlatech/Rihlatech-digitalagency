@@ -11,12 +11,14 @@ export default function Home() {
     <div className="page-container space-y-20">
       <section className="grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
         <div className="space-y-8">
-          <span className="inline-flex items-center gap-3 rounded-full bg-[#2563EB]/10 px-4 py-2 text-sm font-semibold text-[#2563EB]">Premium digital agency experience</span>
+          <span className="inline-flex items-center gap-3 rounded-full bg-[#2563EB]/15 px-4 py-2 text-sm font-semibold text-[#93C5FD]">
+            Premium digital agency experience
+          </span>
           <div className="space-y-6">
-            <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
+            <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">
               Digital Solutions That Help Your Business Grow
             </h1>
-            <p className="max-w-2xl text-lg leading-8 text-slate-600">
+            <p className="max-w-2xl text-lg leading-8 text-slate-300">
               Professional web design, graphic design, and social media management services for businesses.
             </p>
           </div>
@@ -27,7 +29,11 @@ export default function Home() {
                 <Link
                   key={button.label}
                   to={button.to}
-                  className={button.variant === 'secondary' ? 'inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-50' : 'btn-primary'}
+                  className={
+                    button.variant === 'secondary'
+                      ? 'inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800'
+                      : 'btn-primary'
+                  }
                 >
                   {button.label}
                 </Link>
@@ -37,7 +43,7 @@ export default function Home() {
                   href={button.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-50"
+                  className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
                 >
                   {button.label}
                 </a>
@@ -46,13 +52,17 @@ export default function Home() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-soft">
-              <p className="text-sm uppercase tracking-[0.32em] text-slate-500">Strategy</p>
-              <p className="mt-4 text-base leading-7 text-slate-700">A polished digital strategy that aligns design, messaging, and business goals.</p>
+            <div className="rounded-3xl border border-slate-800 bg-slate-950/90 p-6 shadow-soft">
+              <p className="text-sm uppercase tracking-[0.32em] text-slate-400">Strategy</p>
+              <p className="mt-4 text-base leading-7 text-slate-300">
+                A polished digital strategy that aligns design, messaging, and business goals.
+              </p>
             </div>
-            <div className="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-soft">
-              <p className="text-sm uppercase tracking-[0.32em] text-slate-500">Growth</p>
-              <p className="mt-4 text-base leading-7 text-slate-700">Focused creative systems that strengthen your brand and improve customer perception.</p>
+            <div className="rounded-3xl border border-slate-800 bg-slate-950/90 p-6 shadow-soft">
+              <p className="text-sm uppercase tracking-[0.32em] text-slate-400">Growth</p>
+              <p className="mt-4 text-base leading-7 text-slate-300">
+                Focused creative systems that strengthen your brand and improve customer perception.
+              </p>
             </div>
           </div>
         </div>
@@ -61,7 +71,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
-          className="relative overflow-hidden rounded-[2rem] border border-white/60 bg-gradient-to-br from-slate-950 via-slate-900 to-[#0F172A] p-8 shadow-soft"
+          className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-[#0F172A] p-8 shadow-soft"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.3),_transparent_35%)]" />
           <div className="relative grid gap-6">
@@ -99,11 +109,11 @@ export default function Home() {
             description="RihlaTech Company delivers creative digital solutions with clarity, reliability, and strong commercial results. We focus on premium design, compelling brand moments, and fast delivery."
           />
         </div>
-        <div className="grid gap-6 rounded-[2rem] border border-slate-200/70 bg-white/90 p-8 shadow-soft">
+        <div className="grid gap-6 rounded-[2rem] border border-slate-800/70 bg-slate-950/90 p-8 shadow-soft">
           {['Professionalism', 'Creativity', 'Business growth', 'Reliability'].map((item) => (
-            <div key={item} className="rounded-3xl bg-slate-50 p-6">
-              <h3 className="text-lg font-semibold text-slate-950">{item}</h3>
-              <p className="mt-3 text-slate-600 leading-7">
+            <div key={item} className="rounded-3xl bg-slate-900/80 p-6">
+              <h3 className="text-lg font-semibold text-white">{item}</h3>
+              <p className="mt-3 text-slate-300 leading-7">
                 {item === 'Professionalism' && 'Clear communication, polished delivery, and a dedicated project approach.'}
                 {item === 'Creativity' && 'Brand-led visuals and polished marketing assets that feel modern and premium.'}
                 {item === 'Business growth' && 'Solutions built to support customer acquisition and measurable growth.'}
@@ -132,8 +142,8 @@ export default function Home() {
                 <div className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-[#2563EB]/10 text-[#2563EB]">
                   <Icon className="h-7 w-7" />
                 </div>
-                <h3 className="mt-6 text-xl font-semibold text-slate-950">{item.title}</h3>
-                <p className="mt-3 text-slate-600 leading-7">{item.description}</p>
+                <h3 className="mt-6 text-xl font-semibold text-white">{item.title}</h3>
+                <p className="mt-3 text-slate-300 leading-7">{item.description}</p>
               </motion.div>
             )
           })}
