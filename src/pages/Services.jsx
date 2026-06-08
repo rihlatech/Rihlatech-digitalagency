@@ -1,9 +1,13 @@
+import { useEffect } from 'react'
 import SectionHeader from '../components/SectionHeader'
 import ServiceCard from '../components/ServiceCard'
 import PackageCard from '../components/PackageCard'
 import { services, packages } from '../data/siteData'
 
 export default function Services() {
+  useEffect(() => {
+    document.title = 'Services | RihlaTech Company'
+  }, [])
   return (
     <div className="page-container space-y-20">
       <section className="space-y-8">

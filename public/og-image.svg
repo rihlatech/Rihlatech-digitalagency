@@ -1,0 +1,15 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RihlaTech Company Open Graph Image">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="80" y="80" width="1040" height="470" rx="40" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
+  <text x="100" y="220" font-family="Inter, system-ui, sans-serif" font-size="64" font-weight="700" fill="#FFFFFF">RihlaTech Company</text>
+  <text x="100" y="310" font-family="Inter, system-ui, sans-serif" font-size="32" fill="#CBD5E1">Web Design • Graphic Design • Social Media Management</text>
+  <text x="100" y="360" font-family="Inter, system-ui, sans-serif" font-size="28" fill="#94A3B8">Digital agency in Kenya helping businesses grow online</text>
+  <circle cx="1050" cy="520" r="55" fill="#2563EB" />
+  <text x="990" y="540" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="700" fill="#FFFFFF">Kenya</text>
+</svg>

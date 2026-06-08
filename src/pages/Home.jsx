@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import SectionHeader from '../components/SectionHeader'
@@ -7,6 +8,9 @@ import { whyChooseUs, services, heroButtons } from '../data/siteData'
 import { MdOutlineWavingHand } from 'react-icons/md'
 
 export default function Home() {
+  useEffect(() => {
+    document.title = 'RihlaTech Company | Digital Agency in Kenya'
+  }, [])
   return (
     <div className="page-container space-y-20">
       <section className="grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { contactInfo } from '../data/siteData'
 import {
   isEmailJsConfigured,
@@ -11,6 +11,10 @@ const validateEmail = (value) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())
 
 export default function Contact() {
+  useEffect(() => {
+    document.title = 'Contact | RihlaTech Company'
+  }, [])
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',

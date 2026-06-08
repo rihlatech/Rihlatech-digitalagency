@@ -1,8 +1,12 @@
+import { useEffect } from 'react'
 import SectionHeader from '../components/SectionHeader'
 import PortfolioCard from '../components/PortfolioCard'
 import { portfolioItems, portfolioQuoteLink } from '../data/siteData'
 
 export default function Portfolio() {
+  useEffect(() => {
+    document.title = 'Portfolio | RihlaTech Company'
+  }, [])
   return (
     <div className="page-container space-y-20">
       <section className="space-y-8">
