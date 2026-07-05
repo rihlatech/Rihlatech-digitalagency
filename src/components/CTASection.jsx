@@ -1,11 +1,14 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { buttonMotion } from '../utils/animations'
 
 export default function CTASection() {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <motion.section
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={shouldReduceMotion ? undefined : { opacity: 0, y: 24 }}
+      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       className="glass-panel overflow-hidden px-6 py-12 sm:px-10"
     >
@@ -20,17 +23,20 @@ export default function CTASection() {
           </p>
         </div>
         <div className="flex flex-wrap gap-3">
-          <a
+          <motion.a
             href="https://wa.me/254719310048"
             target="_blank"
             rel="noreferrer"
+            {...(shouldReduceMotion ? {} : buttonMotion)}
             className="btn-primary"
           >
             Request a Quote
-          </a>
-          <Link to="/contact" className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15">
-            Contact Us
-          </Link>
+          </motion.a>
+          <motion.div {...(shouldReduceMotion ? {} : buttonMotion)}>
+            <Link to="/contact" className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15">
+              Contact Us
+            </Link>
+          </motion.div>
         </div>
       </div>
     </motion.section>

@@ -10,7 +10,6 @@ import {
   MdOutlineDesignServices,
   MdOutlineWeb,
   MdOutlineCampaign,
-  MdOutlineBusiness,
 } from 'react-icons/md'
 import {
   AiOutlineLaptop,

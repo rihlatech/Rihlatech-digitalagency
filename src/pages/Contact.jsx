@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import { contactInfo } from '../data/siteData'
 import {
   isEmailJsConfigured,
@@ -6,11 +7,15 @@ import {
   sendBusinessEmail,
 } from '../utils/emailService'
 import SectionHeader from '../components/SectionHeader'
+import AnimatedSection from '../components/AnimatedSection'
+import { buttonMotion, cardVariants, containerStagger } from '../utils/animations'
 
 const validateEmail = (value) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())
 
 export default function Contact() {
+  const shouldReduceMotion = useReducedMotion()
+
   useEffect(() => {
     document.title = 'Contact | RihlaTech Company'
   }, [])
@@ -110,45 +115,61 @@ export default function Contact() {
 
   return (
     <div className="page-container space-y-16">
-      <section className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <AnimatedSection direction="left" className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div className="space-y-6">
           <SectionHeader
             eyebrow="Contact"
             title="Connect with RihlaTech for your next digital project."
             description="Send a message, start a WhatsApp chat, or use the form below to reach our team quickly."
           />
-          <div className="space-y-4 rounded-[2rem] border border-slate-800/70 bg-slate-950/95 p-8 shadow-soft">
-            <div>
+          <motion.div
+            initial={shouldReduceMotion ? undefined : 'hidden'}
+            whileInView={shouldReduceMotion ? undefined : 'visible'}
+            viewport={{ once: true, amount: 0.35 }}
+            variants={containerStagger}
+            className="space-y-4 rounded-[2rem] border border-slate-800/70 bg-slate-950/95 p-8 shadow-soft"
+          >
+            <motion.div variants={cardVariants}>
               <p className="text-sm uppercase tracking-[0.28em] text-slate-400">WhatsApp Business</p>
               <p className="mt-2 text-2xl font-semibold text-white">{contactInfo.phone}</p>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div variants={cardVariants}>
               <p className="text-sm uppercase tracking-[0.28em] text-slate-400">Email</p>
               <p className="mt-2 text-base leading-7 text-slate-300">{contactInfo.email}</p>
-            </div>
+            </motion.div>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a
+              <motion.a
                 href={contactInfo.whatsapp}
                 target="_blank"
                 rel="noreferrer"
+                variants={cardVariants}
+                {...(shouldReduceMotion ? {} : buttonMotion)}
                 className="btn-primary"
               >
                 WhatsApp Chat
-              </a>
-              <button
+              </motion.a>
+              <motion.button
                 type="button"
                 onClick={handleCopyEmail}
+                variants={cardVariants}
+                {...(shouldReduceMotion ? {} : buttonMotion)}
                 className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
                 {copyLabel}
-              </button>
+              </motion.button>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="rounded-[2rem] border border-slate-800/70 bg-slate-950/95 p-8 shadow-soft">
+        <motion.div
+          initial={shouldReduceMotion ? undefined : { opacity: 0, x: 36 }}
+          whileInView={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.65, ease: 'easeOut' }}
+          className="rounded-[2rem] border border-slate-800/70 bg-slate-950/95 p-8 shadow-soft"
+        >
           <h3 className="text-xl font-semibold text-white">Send a message</h3>
-          <p className="mt-3 text-slate-300">Share your details and project goals, and we’ll get back to you promptly.</p>
+          <p className="mt-3 text-slate-300">Share your details and project goals, and we'll get back to you promptly.</p>
           <form onSubmit={handleSubmit} className="mt-8 space-y-6">
             <div>
               <label className="block text-sm font-medium text-slate-300">Full Name</label>
@@ -203,13 +224,14 @@ export default function Contact() {
               />
               {errors.message ? <p className="mt-2 text-sm text-rose-400">{errors.message}</p> : null}
             </div>
-            <button
+            <motion.button
               type="submit"
               disabled={loading}
+              {...(shouldReduceMotion ? {} : buttonMotion)}
               className={`btn-primary w-full ${loading ? 'cursor-not-allowed opacity-80' : ''}`}
             >
               {loading ? 'Sending...' : 'Send Message'}
-            </button>
+            </motion.button>
           </form>
           {status.message ? (
             <div className="mt-6 space-y-3">
@@ -221,19 +243,20 @@ export default function Contact() {
                 {status.message}
               </p>
               {status.type === 'error' ? (
-                <a
+                <motion.a
                   href="https://wa.me/254719310048?text=Hello%20RihlaTech,%20I%20tried%20to%20contact%20you%20via%20email%20but%20it%20didn't%20work."
                   target="_blank"
                   rel="noreferrer"
+                  {...(shouldReduceMotion ? {} : buttonMotion)}
                   className="inline-flex rounded-full border border-slate-700 bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
                 >
                   Contact via WhatsApp
-                </a>
+                </motion.a>
               ) : null}
             </div>
           ) : null}
-        </div>
-      </section>
+        </motion.div>
+      </AnimatedSection>
     </div>
   )
 }

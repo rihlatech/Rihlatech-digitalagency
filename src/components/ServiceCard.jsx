@@ -1,9 +1,21 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
+import { buttonMotion, cardVariants } from '../utils/animations'
 
 export default function ServiceCard({ icon: Icon, title, description, features, quoteLink }) {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <motion.article
-      whileHover={{ y: -8 }}
+      variants={cardVariants}
+      whileHover={
+        shouldReduceMotion
+          ? undefined
+          : {
+              scale: 1.035,
+              y: -6,
+              boxShadow: '0 24px 70px -34px rgba(37, 99, 235, 0.7)',
+            }
+      }
       transition={{ type: 'spring', stiffness: 260, damping: 20 }}
       className="glass-card p-8"
     >
@@ -20,14 +32,15 @@ export default function ServiceCard({ icon: Icon, title, description, features, 
           </li>
         ))}
       </ul>
-      <a
+      <motion.a
         href={quoteLink}
         target="_blank"
         rel="noreferrer"
+        {...(shouldReduceMotion ? {} : buttonMotion)}
         className="mt-8 inline-flex rounded-full bg-[#2563EB] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1D4ED8]"
       >
         Request a Quote
-      </a>
+      </motion.a>
     </motion.article>
   )
 }
